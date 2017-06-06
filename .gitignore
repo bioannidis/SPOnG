@@ -4,6 +4,7 @@
 *.pdf
 *.log
 *.dat 
+*./datasets/test/*
 lib/datasets/AdultDataset/*
 lib/datasets/AirportsDataset/*
 lib/datasets/AmazonDataset/*
