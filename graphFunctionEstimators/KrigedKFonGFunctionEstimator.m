@@ -76,7 +76,7 @@ classdef KrigedKFonGFunctionEstimator< GraphFunctionEstimator
 			t_previousMinimumSquaredError=obj.t_previousMinimumSquaredError;
 			m_previousEstimate=obj.m_previousEstimate;
 			m_estimate = zeros(s_numberOfVertices,s_numberOfRealizations);
-            
+            %t_stateEvolutionKernel=repmat(m_stateEvolutionKernel,[1,1,size(t_previousMinimumSquaredError,3)]);
 			t_newMSE= zeros(size(t_previousMinimumSquaredError,1),size(t_previousMinimumSquaredError,2),size(t_previousMinimumSquaredError,3));
 			for s_realizationCounter = 1:s_numberOfRealizations
 				%selection Matrix

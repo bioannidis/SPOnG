@@ -150,7 +150,7 @@ classdef L2MultiKernelKrigingCovEstimator < MultiKernelKrigingCovEstimator
                 v_thetap=zeros(s_numberOfKernels,1);
                 v_theta=ones(s_numberOfKernels,1);
                 s_sens=10^-8;
-                s_stepSize=0.1;
+                s_stepSize=0.001;
                 while norm(v_thetap-v_theta)>s_sens
                     v_thetap=v_theta;
                     v_grad=2*obj.s_lambda*v_theta+2*(m_reducedSizeDictionary')*m_reducedSizeDictionary*v_theta-2*(m_reducedSizeDictionary')*v_residualCovariance;

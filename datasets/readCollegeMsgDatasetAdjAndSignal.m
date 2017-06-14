@@ -28,16 +28,16 @@ end
 m_adjacency=m_adjacency+m_adjacency';
 g=Graph('m_adjacency',m_adjacency);
 v_indComponent=g.getComponents{1};
-s_timeInd=10;
-s_chuncksForMessages=floor(59835/s_timeInd);
+s_timeInd=6;
+s_chuncksForMessages=floor(59835/(s_timeInd));
 m_messagesTimeSeries=zeros(1899,s_timeInd);
 v_messagesForThisChunk=zeros(1899,1);
 v_indboolSubstantial=ones(1899,1);
-s_substantialMessages=1;
+s_substantialMessages=10;
     s_ind=1;
 for s_it=s_chuncks+1 :size(m_rawData,1)
     if (s_chuncksForMessages==0)
-        s_chuncksForMessages=floor(59835/s_timeInd);
+        s_chuncksForMessages=floor(59835/(s_timeInd));
         m_messagesTimeSeries(:,s_ind)=v_messagesForThisChunk;
         s_ind=s_ind+1;
         v_indSubSubstatial=v_messagesForThisChunk>=s_substantialMessages;
@@ -56,5 +56,8 @@ m_messagesTimeSeries=m_messagesTimeSeries(v_indToKeep,:);
 g=Graph('m_adjacency',m_adjacency);
 v_indComponent=g.getComponents{1};
 m_adjacency=m_adjacency(v_indComponent,v_indComponent);
+m_messagesTimeSeries=m_messagesTimeSeries(v_indComponent,:);
+
+g=Graph('m_adjacency',m_adjacency);
 
 end
